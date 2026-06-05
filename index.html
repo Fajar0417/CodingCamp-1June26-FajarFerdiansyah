@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Life Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+       <div class="theme-toggle-container">
+            <button id="theme-toggle-btn">
+                <i id="theme-icon" class="fas fa-moon"></i>
+            </button>
+        </div>
+
+        <header class="card greeting-card">
+            <div id="clock">00:00:00</div>
+            <div id="date">Loading date...</div>
+            <h2 id="greeting-text">Good Morning</h2>
+            
+            <div class="custom-name-area">
+                <input type="text" id="username-input" placeholder="Masukkan namamu...">
+                <button id="save-name-btn">Simpan Nama</button>
+            </div>
+        </header>
+
+        <div class="main-content">
+            
+            <div class="content-left">
+                
+                <section class="card timer-card">
+                    <h3>Focus Timer</h3>
+                    <div id="timer-display">25:00</div>
+                    
+                    <div class="timer-controls">
+                        <button id="start-btn">Start</button>
+                        <button id="stop-btn">Stop</button>
+                        <button id="reset-btn">Reset</button>
+                    </div>
+
+                    <div class="timer-options">
+                        <button class="time-opt-btn" data-time="25">25 Min</button>
+                        <button class="time-opt-btn" data-time="15">15 Min</button>
+                        <button class="time-opt-btn" data-time="5">5 Min</button>
+                    </div>
+                </section>
+
+                <section class="card links-card">
+                    <h3>Quick Links</h3>
+                    <div class="input-group">
+                        <input type="text" id="link-name" placeholder="Nama Website (ex: Google)">
+                        <input type="text" id="link-url" placeholder="URL (ex: google.com)">
+                        <button id="add-link-btn">Add Link</button>
+                    </div>
+                    <div id="links-container" class="links-grid"></div>
+                </section>
+                
+            </div>
+
+            <div class="content-right">
+                
+                <section class="card todo-card">
+                    <h3>Tasks</h3>
+                    <div class="input-group">
+                        <input type="text" id="todo-input" placeholder="Add a new task...">
+                        <button id="add-todo-btn">Add</button>
+                    </div>
+
+                   <div class="sort-controls">
+                        <button class="sort-btn" onclick="sortTasks('alpha')">
+                            <i class="fas fa-sort-alpha-down"></i> A-Z
+                        </button>
+                        <button class="sort-btn" onclick="sortTasks('status')">
+                            <i class="fas fa-check-double"></i> Selesai
+                        </button>
+                    </div>
+
+                    <ul id="todo-list"></ul>
+                </section>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

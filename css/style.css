@@ -1,0 +1,341 @@
+/* ==========================================================================
+   1. RESET & CORE STYLES (Tema Hitam & Bias Hijau)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background-color: #000000;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(13, 242, 201, 0.1) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(56, 161, 105, 0.1) 0px, transparent 50%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    color: #e2e8f0;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1.8fr;
+    gap: 25px;
+}
+
+@media (max-width: 850px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+.content-left {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* ==========================================================================
+   2. MATRIX GLASSMORPHISM CARDS (Kartu Hitam Ring Hijau)
+   ========================================================================== */
+.card {
+    background: rgba(10, 10, 12, 0.85);
+    border: 1px solid rgba(13, 242, 201, 0.05); 
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    border-color: rgba(13, 242, 201, 0.3); 
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(13, 242, 201, 0.05);
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: #a0aec0;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   3. PERETELAN GRADASI HIJAU NEON (Glowing Elements)
+   ========================================================================== */
+
+#clock {
+    font-size: 4.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #0df2c9 0%, #48bb78 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 15px rgba(13, 242, 201, 0.3));
+}
+
+#timer-display {
+    font-size: 4.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00ff87 0%, #60efff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 15px rgba(0, 255, 135, 0.25));
+    margin: 20px 0;
+    font-variant-numeric: tabular-nums;
+}
+
+#date {
+    font-size: 0.9rem;
+    color: #48bb78; 
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+#greeting-text {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   4. INPUT & TOMBOL THEMA MATRIX
+   ========================================================================== */
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #000000; 
+    background: linear-gradient(135deg, #0df2c9 0%, #38a169 100%); 
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 4px 15px rgba(13, 242, 201, 0.4);
+    transform: scale(1.02);
+}
+
+#start-btn { background: linear-gradient(135deg, #00ff87 0%, #2f855a 100%); }
+#stop-btn { background: linear-gradient(135deg, #ecc94b 0%, #b7791f 100%); color: #000; }
+#reset-btn { background: linear-gradient(135deg, #f56565 0%, #9b2c2c 100%); color: #fff; }
+
+.timer-controls, .timer-options, .sort-controls {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.timer-options, .sort-controls {
+    margin-top: 20px;
+}
+
+.time-opt-btn, .sort-btn, #theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.03);
+    color: #48bb78;
+    border: 1px solid rgba(13, 242, 201, 0.2);
+}
+.time-opt-btn:hover, .sort-btn:hover, #theme-toggle-btn:hover {
+    background: rgba(13, 242, 201, 0.1);
+    color: #fff;
+    border-color: #0df2c9;
+}
+
+input[type="text"] {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(13, 242, 201, 0.2);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: #0df2c9;
+    outline: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #0df2c9;
+    box-shadow: 0 0 0 3px rgba(13, 242, 201, 0.15);
+}
+
+.input-group {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   5. PERETELAN LIST & SHORTCUTS (To-Do & Links)
+   ========================================================================== */
+#todo-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.todo-item {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(13, 242, 201, 0.05);
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.todo-item:hover {
+    background: rgba(13, 242, 201, 0.02);
+    border-color: rgba(13, 242, 201, 0.15);
+}
+
+.todo-item.completed {
+    opacity: 0.3;
+}
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: #718096;
+}
+
+.todo-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+input[type="checkbox"] {
+    accent-color: #0df2c9;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.delete-btn {
+    background: transparent;
+    color: #fc8181;
+    border: 1px solid rgba(252, 129, 129, 0.2);
+    padding: 6px 12px;
+    font-size: 0.8rem;
+}
+.delete-btn:hover {
+    background: rgba(252, 129, 129, 0.1);
+    box-shadow: none;
+}
+
+.links-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.link-btn {
+    text-decoration: none;
+    color: #e2e8f0;
+    font-size: 0.85rem;
+    padding: 10px 18px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(13, 242, 201, 0.1);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.link-btn:hover {
+    background: linear-gradient(135deg, rgba(13, 242, 201, 0.1) 0%, rgba(56, 161, 105, 0.1) 100%);
+    border-color: #0df2c9;
+    transform: translateY(-2px);
+}
+
+.delete-link-x {
+    color: #fc8181;
+    margin-left: 4px;
+}
+
+.theme-toggle-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+body.dark-mode {
+    background: #f7fafc;
+    color: #1a202c;
+}
+body.dark-mode .card {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+#theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(13, 242, 201, 0.2);
+    color: #0df2c9;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#theme-toggle-btn:hover {
+    background: rgba(13, 242, 201, 0.1);
+    border-color: #0df2c9;
+    box-shadow: 0 0 15px rgba(13, 242, 201, 0.4);
+    transform: scale(1.1);
+}
+
+#theme-toggle-btn #theme-icon {
+    transition: transform 0.5s ease-in-out;
+}
+
+#theme-toggle-btn:hover #theme-icon {
+    transform: rotate(360deg); 
+}
+
+body.dark-mode #theme-toggle-btn {
+    color: #2f855a;
+    border-color: #cbd5e0;
+    background: #edf2f7;
+}
+body.dark-mode #theme-toggle-btn:hover {
+    background: #e2e8f0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sort-btn i {
+    margin-right: 6px;
+    transition: transform 0.2s ease;
+}
+.sort-btn:hover i {
+    transform: translateY(-1px);
+}
+
+body.dark-mode .card h3 { color: #4a5568; }
+body.dark-mode #greeting-text { color: #1a202c; }
+body.dark-mode input[type="text"] { background: #fff; border-color: #cbd5e0; color: #1a202c; }
+body.dark-mode .todo-item { background: #f7fafc; border-color: #e2e8f0; color: #1a202c; }
+body.dark-mode .link-btn { background: #edf2f7; border-color: #cbd5e0; color: #2d3748; }
