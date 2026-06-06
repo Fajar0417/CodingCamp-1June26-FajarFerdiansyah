@@ -334,6 +334,60 @@ body.dark-mode #theme-toggle-btn:hover {
     transform: translateY(-1px);
 }
 
+/* ==========================================================================
+   6. RESPONSIVE MOBILE OPTIMIZATION (Perbaikan Focus Timer & Layout HP)
+   ========================================================================== */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    /* --- TAMBAHAN BARU: Membuat area simpan nama turun & rapi di HP --- */
+    .custom-name-area {
+        display: flex;
+        flex-direction: column; /* Mengubah posisi input dan tombol jadi atas-bawah */
+        gap: 10px; /* Memberikan jarak/turun sedikit antara input dan tombol */
+        width: 100%;
+    }
+
+    #username-input, #save-name-btn {
+        width: 100%; /* Membuat kolom input dan tombol melebar penuh di HP agar estetik */
+    }
+    /* ----------------------------------------------------------------- */
+
+    #clock, #timer-display {
+        font-size: 3rem; 
+    }
+
+    #greeting-text {
+        font-size: 1.6rem;
+    }
+
+    .timer-controls, .timer-options, .sort-controls, .input-group {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .timer-controls button, .timer-options button {
+        flex: 1 1 calc(33.33% - 8px); 
+        padding: 10px 12px;
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    .input-group input[type="text"] {
+        flex: 1 1 100%;
+    }
+    
+    .input-group button {
+        width: 100%;
+    }
+}
+
 body.dark-mode .card h3 { color: #4a5568; }
 body.dark-mode #greeting-text { color: #1a202c; }
 body.dark-mode input[type="text"] { background: #fff; border-color: #cbd5e0; color: #1a202c; }
